@@ -93,6 +93,15 @@ class CreacionPerfilSerializer(serializers.ModelSerializer):
     def loadusuario(self, obj):
       return obj.usuario.username
       
+class CryptocurrencySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cryptocurrency
+        fields = '__all__'
+
+class TokenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Token
+        fields = '__all__'
 
 #class ImagePostSerializer(serializers.ModelSerializer):
 #    image = serializers.ImageField(required=False)

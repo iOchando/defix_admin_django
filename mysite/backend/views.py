@@ -154,6 +154,42 @@ class ComisionVS(Generico):
             #serializer = ComisionSerializer(comisiones).data
             return Response(data,status=status.HTTP_200_OK)
         return Response(status=status.HTTP_401_UNAUTHORIZED)
+    
+class CryptocurrencyVS(viewsets.ModelViewSet):
+    permission_classes=[IsAuthenticated]
+    authentication_classes=[TokenAuthentication]
+    queryset=Cryptocurrency.objects.all()
+    serializer_class=CryptocurrencySerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)   
+    
+class TokenVS(viewsets.ModelViewSet):
+    permission_classes=[IsAuthenticated]
+    authentication_classes=[TokenAuthentication]
+    queryset=Token.objects.all()
+    serializer_class=TokenSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)   
 
 class tPaisVS(Generico):
     permission_classes=[IsAuthenticated]

@@ -20,6 +20,8 @@ admin.site.register(tTipoPago)
 admin.site.register(tkycCuenta)
 admin.site.register(tkycCuentaDefix)
 admin.site.register(FiatTransaccion)
+admin.site.register(Cryptocurrency)
+admin.site.register(Token)
 
 
 #admin.site.register(kycHistorico)

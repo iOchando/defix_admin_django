@@ -22,6 +22,8 @@ router.register(r'tipopago',tTipoPagoVS,basename='tTipoPago')
 router.register(r'kyccuenta',tkycCuentaVS,basename='tkycCuenta')
 router.register(r'kyccuentadefix',tkycCuentaDefixVS,basename='tkycCuentaDefix')
 router.register(r'FiatTransaccion',FiatTransaccionVS,basename='FiatTransaccion')
+router.register(r'cryptocurrency',CryptocurrencyVS,basename='Cryptocurrency')
+router.register(r'token',TokenVS,basename='token')
 
 urlpatterns = [
     path('', include(router.urls)), 

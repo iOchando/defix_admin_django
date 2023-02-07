@@ -52,3 +52,5 @@ weasyprint==54.2
 webencodings==0.5.1
 zopfli==0.2.1
 sqlalchemy
+openpyxl
+xlwt

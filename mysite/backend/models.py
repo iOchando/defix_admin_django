@@ -9,6 +9,20 @@ from decimal import Decimal
 
 # Create your models here.
 
+class Cryptocurrency(models.Model):
+    coin=models.CharField(max_length=32, null=False, blank=False, unique=True)
+    nombre=models.CharField(max_length=255, null=False, blank=False)
+    blockchain=models.CharField(max_length=255, null=False, blank=False)
+    def __str__(self):
+        return '%s'%(self.coin)
+    
+class Token(models.Model):
+    cryptocurrency=models.ForeignKey(Cryptocurrency,null=False,blank=False,on_delete=models.CASCADE)
+    coin=models.CharField(max_length=32, null=False, blank=False)
+    contract=models.CharField(max_length=255, null=False, blank=False)
+    def __str__(self):
+        return '%s - %s'%(self.coin, self.cryptocurrency.nombre)
+
 class Perfil(models.Model):
     TIPO=(('S','Super'),('A','Admin'),('U','Usuario'),('B','Banco'),('D','Defix'))
     usuario=models.OneToOneField(User,on_delete=models.CASCADE,help_text="usuario asociado")
