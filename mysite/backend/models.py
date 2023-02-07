@@ -20,6 +20,7 @@ class Token(models.Model):
     cryptocurrency=models.ForeignKey(Cryptocurrency,null=False,blank=False,on_delete=models.CASCADE)
     coin=models.CharField(max_length=32, null=False, blank=False)
     contract=models.CharField(max_length=255, null=False, blank=False)
+    decimals=models.IntegerField(null=True, blank=True)
     def __str__(self):
         return '%s - %s'%(self.coin, self.cryptocurrency.nombre)
 
