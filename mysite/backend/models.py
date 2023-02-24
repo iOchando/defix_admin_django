@@ -17,12 +17,12 @@ class Cryptocurrency(models.Model):
         return '%s'%(self.coin)
     
 class Token(models.Model):
-    cryptocurrency=models.ForeignKey(Cryptocurrency,null=False,blank=False,on_delete=models.CASCADE)
+    cryptocurrencys=models.ForeignKey(Cryptocurrency,null=False,blank=False,on_delete=models.CASCADE)
     coin=models.CharField(max_length=32, null=False, blank=False)
     contract=models.CharField(max_length=255, null=False, blank=False)
     decimals=models.IntegerField(null=True, blank=True)
     def __str__(self):
-        return '%s - %s'%(self.coin, self.cryptocurrency.nombre)
+        return '%s - %s'%(self.coin, self.cryptocurrency.blockchain)
 
 class Perfil(models.Model):
     TIPO=(('S','Super'),('A','Admin'),('U','Usuario'),('B','Banco'),('D','Defix'))
